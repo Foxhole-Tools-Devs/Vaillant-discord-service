@@ -1,0 +1,3 @@
+[submodule "discord-api"]
+	path = discord-api
+	url = https://github.com/Foxhole-Tools-Devs/Vaillant-discord-service-api.git
