@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>xyz.vaillant.poc.discord</groupId>
-        <artifactId>vaillant-discord-parent</artifactId>
+        <artifactId>vaillant-discord-service</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
     <artifactId>discord-ws</artifactId>
     <name>Vaillant Discord WebService</name>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
 
     <properties>
@@ -120,5 +120,27 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <finalName>Application-server-ws</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version>
+                <configuration>
+                    <mainClass>xyz.vaillant.poc.discord.ws.SpringApplicationWS</mainClass>
+                    <layout>JAR</layout>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

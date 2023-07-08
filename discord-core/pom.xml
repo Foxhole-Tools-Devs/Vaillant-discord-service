@@ -6,7 +6,7 @@
 
     <parent>
         <groupId>xyz.vaillant.poc.discord</groupId>
-        <artifactId>vaillant-discord-parent</artifactId>
+        <artifactId>vaillant-discord-service</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
