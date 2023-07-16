@@ -1,5 +1,24 @@
 discord:
-  token: 'MTAyMTQ0MTc2MjA3OTgwMTM0NA.GQJcZC.teUR5g-G8Yst1IC_9RhQE88C5KpEN7AVN7me_I'
+  token: ${DISCORD_BOT_TOKEN}
 
 server:
   port: ${DISCORD_SERVICE_PORT:8079}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health, metrics
+
+xyz:
+  vaillant:
+    poc:
+      front:
+        service:
+          url: ${FRONT_SERVICE_URL:http://localhost:3000}
+      domain:
+        service:
+          url: ${BACK_SERVICE_URL:http://localhost:8080}
+      discord:
+        service:
+          url: ${DISCORD_SERVICE_URL:http://localhost:8079}

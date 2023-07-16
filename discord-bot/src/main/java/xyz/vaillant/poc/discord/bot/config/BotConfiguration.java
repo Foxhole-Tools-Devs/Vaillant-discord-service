@@ -3,6 +3,7 @@ package xyz.vaillant.poc.discord.bot.config;
 import discord4j.core.DiscordClientBuilder;
 import discord4j.core.GatewayDiscordClient;
 import discord4j.core.event.domain.Event;
+import discord4j.gateway.intent.IntentSet;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -19,6 +20,8 @@ public class BotConfiguration {
     @Value("${discord.token}")
     private String token;
 
+    private GatewayDiscordClient client;
+
     @Bean
     public <T extends Event>GatewayDiscordClient gatewayDiscordClient(List<EventListener<T>> eventListeners) {
         GatewayDiscordClient client = null;
@@ -26,6 +29,8 @@ public class BotConfiguration {
         try {
             client = DiscordClientBuilder.create(token)
                     .build()
+                    .gateway()
+                    .setEnabledIntents(IntentSet.all())
                     .login()
                     .block();
 
@@ -38,6 +43,8 @@ public class BotConfiguration {
         } catch (Exception exception) {
             log.error( "Be sure to use a valid bot token!", exception );
         }
+
+        this.client = client;
 
         return client;
     }

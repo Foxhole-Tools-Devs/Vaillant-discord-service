@@ -22,6 +22,9 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>17</java.version>
 
+        <!-- Maven compilation -->
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+
         <!-- Spring boot -->
         <spring-boot.version>3.1.0</spring-boot.version>
         <spring-cloud.feign.version>4.0.3</spring-cloud.feign.version>
